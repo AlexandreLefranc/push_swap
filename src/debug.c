@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 14:43:39 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/16 15:27:00 by alefranc         ###   ########.fr       */
+/*   Created: 2022/03/16 16:25:27 by alefranc          #+#    #+#             */
+/*   Updated: 2022/03/16 17:50:02 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	print_stacks(t_list *stack_a, t_list *stack_b)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
+	int i = 0;
 
-	stack_a = parse_input(argc, argv);
-	stack_b = NULL;
-	printf("%d\n", ft_lstsize(stack_a));
-	return (0);
+
+	len_a = ft_lstsize(stack_a);
+	len_b = ft_lstsize(stack_b);
+	max_len = len_a > len_b ? len_a : len_b;
+	while (i < max_len)
+	{
+		if (max_len - i >)
+		i++;
+	}
+	printf("--------------a --------------b\n");
+	printf("===============================\n");
 }
