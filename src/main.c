@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:43:39 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/17 09:16:07 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/17 09:17:48 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ int	main(int argc, char **argv)
 	ft_lstprint(stack_a, "=====stack_a=====");
 	ft_lstprint(stack_b, "=====stack_b=====");
 	pb(&stack_a, &stack_b);
+	ft_lstprint(stack_a, "=====stack_a=====");
+	ft_lstprint(stack_b, "=====stack_b=====");
+	pa(&stack_a, &stack_b);
+	ft_lstprint(stack_a, "=====stack_a=====");
+	ft_lstprint(stack_b, "=====stack_b=====");
+	pa(&stack_a, &stack_b);
 	ft_lstprint(stack_a, "=====stack_a=====");
 	ft_lstprint(stack_b, "=====stack_b=====");
 	return (0);
