@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/16 15:00:23 by alefranc          #+#    #+#              #
-#    Updated: 2022/03/16 16:15:04 by alefranc         ###   ########.fr        #
+#    Updated: 2022/03/17 07:25:11 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,9 +40,14 @@ LIBFTINC_FLAG = -I$(LIBFTDIR)include
 #------------------------------------#
 
 SRCDIR = src/
-SRCFILES =	main.c \
+SRCFILES =	action_push.c \
+			action_reverse_rotate.c \
+			action_rotate.c \
+			action_swap.c \
+			main.c \
 			parsing.c \
-			error.c
+			error.c \
+			utils_lst.c
 SRC = $(addprefix $(SRCDIR), $(SRCFILES))
 
 #------------------------------------#

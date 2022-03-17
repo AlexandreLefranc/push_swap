@@ -6,16 +6,11 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:26:07 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/16 16:24:30 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/17 06:41:11 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	is_node_unique(t_list *stack, t_list *node)
-{
-
-}
 
 static void	check_uniqueness(t_list *stack, t_list *node)
 {
@@ -31,9 +26,13 @@ static void	check_uniqueness(t_list *stack, t_list *node)
 	}
 }
 
-static void	check_int_number_only(char *str)
+static void	check_number_only(char *str)
 {
-	if ()
+	if (ft_isnumber(str) == 0)
+	{
+		//ft_lstclear();
+		msg_exit("Error! NUmber", 1);
+	}
 }
 
 static void	parse_arg(char *argument, t_list **stack_a)
@@ -49,17 +48,13 @@ static void	parse_arg(char *argument, t_list **stack_a)
 	i = 0;
 	while (tab[i] != NULL)
 	{
-		if (ft_isnumber(tab[i]) == 0)
-		{
-			//ft_lstclear(*stack_a);
-			msg_exit("Error1\n", 1);
-		}
+		check_number_only(tab[i]);
 		number = ft_calloc(sizeof(*number), 1);
 		*number = ft_atoi(tab[i]);
 		node = ft_lstnew((int *)number);
 		if (node == NULL)
 			msg_exit("ft_lstnew() failed", 1);
-		check_uniqueness(*stack_a, node)
+		check_uniqueness(*stack_a, node);
 		ft_lstadd_back(stack_a, node);
 		i++;
 	}

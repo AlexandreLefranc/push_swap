@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug.c                                            :+:      :+:    :+:   */
+/*   action_push.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 16:25:27 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/17 06:51:50 by alefranc         ###   ########.fr       */
+/*   Created: 2022/03/17 07:22:04 by alefranc          #+#    #+#             */
+/*   Updated: 2022/03/17 09:14:33 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stacks(t_list *stack_a, t_list *stack_b)
+static void	push(t_list **stack_from, t_list **stack_to)
 {
-	int i = 0;
-	int	len_a;
-	int	len_b;
-	int	max_len;
-	int	*content_a;
-	int	*content_b;
+	t_list	*tmp;
 
-	len_a = ft_lstsize(stack_a);
-	len_b = ft_lstsize(stack_b);
-	max_len = len_a > len_b ? len_a : len_b;
-	while (i < max_len)
+	if (*stack_from != NULL)
 	{
-		if (max_len - i > len_a)
-		i++;
+		tmp = *stack_from;
+		*stack_from = tmp->next;
+		tmp->next = NULL;
+		ft_lstadd_front(stack_to, tmp);
 	}
-	printf("--------------a --------------b\n");
-	printf("===============================\n");
+}
+
+void	pa(t_list **stack_a, t_list **stack_b)
+{
+	write(1, "pa\n", 3);
+	push(stack_b, stack_a);
+}
+
+void	pb(t_list **stack_a, t_list **stack_b)
+{
+	write(1, "pb\n", 3);
+	push(stack_a, stack_b);
 }
