@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:26:07 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/17 06:41:11 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/18 22:15:48 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,29 @@ static void	check_uniqueness(t_list *stack, t_list *node)
 		{
 			//ft_lstclear(*stack_a);
 			//ft_lstdel_one(node);
-			msg_exit("Error2\n", 1);
+			msg_exit("Error! Uniqueness\n", 1);
 		}
 		stack = stack->next;
 	}
 }
 
-static void	check_number_only(char *str)
+static void	check_number(char *str)
 {
+	if (str[0] == '-')
+		str++;
 	if (ft_isnumber(str) == 0)
 	{
 		//ft_lstclear();
-		msg_exit("Error! NUmber", 1);
+		msg_exit("Error! Number", 1);
 	}
 }
 
 static void	parse_arg(char *argument, t_list **stack_a)
 {
 	t_list	*node;
-	int		*number;
+	long	*number;
 	char	**tab;
-	int		i;
+	size_t	i;
 
 	tab = ft_split(argument, ' ');
 	if (tab == NULL)
@@ -48,10 +50,10 @@ static void	parse_arg(char *argument, t_list **stack_a)
 	i = 0;
 	while (tab[i] != NULL)
 	{
-		check_number_only(tab[i]);
+		check_number(tab[i]);
 		number = ft_calloc(sizeof(*number), 1);
-		*number = ft_atoi(tab[i]);
-		node = ft_lstnew((int *)number);
+		*number = ft_atoi(tab[i]) + 2147483648;
+		node = ft_lstnew(number);
 		if (node == NULL)
 			msg_exit("ft_lstnew() failed", 1);
 		check_uniqueness(*stack_a, node);

@@ -1,45 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_swap.c                                      :+:      :+:    :+:   */
+/*   custom_sort_n.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 07:23:09 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/18 11:16:38 by alefranc         ###   ########.fr       */
+/*   Created: 2022/03/18 23:24:03 by alefranc          #+#    #+#             */
+/*   Updated: 2022/03/18 23:29:09 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_list **stack)
+void	custom_sort_n(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
+	int	size;
 
-	if (*stack != NULL && (*stack)->next != NULL)
+	size = ft_lstsize(*stack_a);
+	if (size > 5)
 	{
-		tmp = (*stack)->next;
-		(*stack)->next = tmp->next;
-		tmp->next = NULL;
-		ft_lstadd_front(stack, tmp);
+		push_min_b(stack_a, stack_b);
+		custom_sort_n(stack_a, stack_b);
+		pa(stack_a, stack_b);
 	}
-}
-
-void	sa(t_list **stack_a)
-{
-	write(1, "sa\n", 3);
-	swap(stack_a);
-}
-
-void	sb(t_list **stack_b)
-{
-	write(1, "sb\n", 3);
-	swap(stack_b);
-}
-
-void	ss(t_list **stack_a, t_list **stack_b)
-{
-	write(1, "ss\n", 3);
-	swap(stack_a);
-	swap(stack_b);
+	else
+	{
+		custom_sort_5(stack_a, stack_b);
+	}
 }

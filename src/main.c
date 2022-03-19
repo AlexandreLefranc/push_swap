@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:43:39 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/17 09:17:48 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/18 23:28:28 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,22 @@ int	main(int argc, char **argv)
 
 	stack_a = parse_input(argc, argv);
 	stack_b = NULL;
-	printf("%d\n\n", ft_lstsize(stack_a));
-	ft_lstprint(stack_a, "=====stack_a=====");
-	sa(&stack_a);
-	ft_lstprint(stack_a, "=====stack_a=====");
-	rrr(&stack_a, &stack_b);
-	ft_lstprint(stack_a, "=====stack_a=====");
-	rr(&stack_a, &stack_b);
-	ft_lstprint(stack_a, "=====stack_a=====");
-	pb(&stack_a, &stack_b);
-	ft_lstprint(stack_a, "=====stack_a=====");
-	ft_lstprint(stack_b, "=====stack_b=====");
-	pb(&stack_a, &stack_b);
-	ft_lstprint(stack_a, "=====stack_a=====");
-	ft_lstprint(stack_b, "=====stack_b=====");
-	pa(&stack_a, &stack_b);
-	ft_lstprint(stack_a, "=====stack_a=====");
-	ft_lstprint(stack_b, "=====stack_b=====");
-	pa(&stack_a, &stack_b);
-	ft_lstprint(stack_a, "=====stack_a=====");
-	ft_lstprint(stack_b, "=====stack_b=====");
+	// ft_lstprint(stack_a, "=====stack_a=====");
+	if (is_sorted(stack_a) == 1)
+	{
+		// ft_lstclear(stack_a);
+		dprintf(2, "Already sorted\n");
+		return (0);
+	}
+	if (ft_lstsize(stack_a) == 2)
+		custom_sort_2(&stack_a, &stack_b);
+	if (ft_lstsize(stack_a) == 3)
+		custom_sort_3(&stack_a, &stack_b);
+	if (ft_lstsize(stack_a) == 4)
+		custom_sort_4(&stack_a, &stack_b);
+	if (ft_lstsize(stack_a) == 5)
+		custom_sort_5(&stack_a, &stack_b);
+	else
+		custom_sort_n(&stack_a, &stack_b);
 	return (0);
 }
