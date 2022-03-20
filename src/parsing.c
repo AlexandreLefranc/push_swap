@@ -6,11 +6,42 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:26:07 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/18 22:15:48 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/20 11:06:31 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+// TO DO !
+static int	ft_isinteger(char *str)
+{
+	int	is_neg;
+	int	cmp1;
+	int	cmp2;
+
+	is_neg = 0;
+	if (str[0] == '-')
+	{
+		str++;
+		is_neg = 1;
+	}
+	if (ft_strlen(str) > 10)
+		return (0);
+	else if (ft_strlen(str) < 10)
+		return (1);
+	else
+	{
+		cmp1 = ft_strncmp(str, "2147483647", 10);
+		cmp2 = ft_strncmp(str, "2147483648", 10);
+		if (cmp1 > 0 && is_neg == 0)
+			return (0);
+		else if (cmp2 > 0 && is_neg == 1)
+			return (0);
+		else
+			return (1);
+	}
+}
 
 static void	check_uniqueness(t_list *stack, t_list *node)
 {
@@ -28,12 +59,15 @@ static void	check_uniqueness(t_list *stack, t_list *node)
 
 static void	check_number(char *str)
 {
-	if (str[0] == '-')
-		str++;
 	if (ft_isnumber(str) == 0)
 	{
 		//ft_lstclear();
-		msg_exit("Error! Number", 1);
+		msg_exit("Error! Number is not a number", 1);
+	}
+	if (ft_isinteger(str) == 0)
+	{
+		//ft_lstclear();
+		msg_exit("Error! Number is not int", 1);
 	}
 }
 
