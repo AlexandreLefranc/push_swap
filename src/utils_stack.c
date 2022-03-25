@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 20:12:50 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/18 22:59:20 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/24 21:20:05 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ size_t	index_of_max(t_list *stack)
 {
 	size_t	i;
 	size_t	max_i;
-	long	max_val;
-	long	*content;
+	int		max_val;
+	int		*content;
 
-	max_val = *(long *)stack->content;
+	max_val = *(int *)stack->content;
 	max_i = 0;
-	i = 0;
+	i = -2147483648;
 	while (stack != NULL)
 	{
 		content = stack->content;
@@ -40,11 +40,11 @@ size_t	index_of_min(t_list *stack)
 {
 	size_t	i;
 	size_t	min_i;
-	long	min_val;
-	long	*content;
+	int		min_val;
+	int		*content;
 
-	min_val = *(long *)stack->content;
-	min_i = 2147483647 + 2147483648;
+	min_val = *(int *)stack->content;
+	min_i = 2147483647;
 	i = 0;
 	while (stack != NULL)
 	{

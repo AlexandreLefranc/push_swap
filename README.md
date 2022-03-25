@@ -68,3 +68,16 @@ push_min(stack_a, stack_b)
 custom_sort_4(stack_a, stack_b)
 push_a()
 ```
+
+# Pseudo-code: fast_sort
+
+```py
+fast_sort(stack_a, stack_b, magic_number):
+	t_list *stack_k
+	t_list *quantiles
+
+	stack_k = dup_to_sorted_tab(stack_a)
+	quantiles = get_quantiles(tab, magic_number)
+
+
+```

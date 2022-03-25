@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 06:42:21 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/18 22:17:34 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/24 20:24:48 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	is_sorted(t_list *stack)
 {
-	long	*content1;
-	long	*content2;
+	int	*content1;
+	int	*content2;
 
 	if (stack == NULL || stack->next == NULL)
 		return (1);
@@ -32,13 +32,13 @@ int	is_sorted(t_list *stack)
 
 void	ft_lstprint(t_list *lst, char *msg)
 {
-	long	*content;
+	int	*content;
 
 	dprintf(2, "%s\n", msg);
 	while (lst != NULL)
 	{
 		content = lst->content;
-		dprintf(2, "content=%ld\n", *content - 2147483648);
+		dprintf(2, "%d\n", *content);
 		lst = lst->next;
 	}
 	dprintf(2, "\n");

@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:59:53 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/18 22:51:41 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/24 21:21:27 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	custom_sort_3(t_list **stack_a, t_list **stack_b)
 		ra(stack_a);
 	else if (max_i == 1)
 		rra(stack_a);
-	if (*(long *)(*stack_a)->content > *(long *)(*stack_a)->next->content)
+	if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
 		sa(stack_a);
 }

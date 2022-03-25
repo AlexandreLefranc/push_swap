@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:43:39 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/18 23:28:28 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/24 21:35:01 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	main(int argc, char **argv)
 	}
 	if (ft_lstsize(stack_a) == 2)
 		custom_sort_2(&stack_a, &stack_b);
-	if (ft_lstsize(stack_a) == 3)
+	else if (ft_lstsize(stack_a) == 3)
 		custom_sort_3(&stack_a, &stack_b);
-	if (ft_lstsize(stack_a) == 4)
+	else if (ft_lstsize(stack_a) == 4)
 		custom_sort_4(&stack_a, &stack_b);
-	if (ft_lstsize(stack_a) == 5)
+	else if (ft_lstsize(stack_a) == 5)
 		custom_sort_5(&stack_a, &stack_b);
 	else
 		custom_sort_n(&stack_a, &stack_b);

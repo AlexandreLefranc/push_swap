@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:26:07 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/20 11:06:31 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/24 20:03:27 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	check_number(char *str)
 static void	parse_arg(char *argument, t_list **stack_a)
 {
 	t_list	*node;
-	long	*number;
+	int		*number;
 	char	**tab;
 	size_t	i;
 
@@ -86,7 +86,7 @@ static void	parse_arg(char *argument, t_list **stack_a)
 	{
 		check_number(tab[i]);
 		number = ft_calloc(sizeof(*number), 1);
-		*number = ft_atoi(tab[i]) + 2147483648;
+		*number = ft_atoi(tab[i]);
 		node = ft_lstnew(number);
 		if (node == NULL)
 			msg_exit("ft_lstnew() failed", 1);
