@@ -6,14 +6,12 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:26:07 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/24 20:03:27 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/25 10:36:08 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-// TO DO !
 static int	ft_isinteger(char *str)
 {
 	int	is_neg;
@@ -43,31 +41,37 @@ static int	ft_isinteger(char *str)
 	}
 }
 
-static void	check_uniqueness(t_list *stack, t_list *node)
+static void	check_uniqueness(t_list **stack, t_list *node, char **tab)
 {
-	while (stack != NULL)
+	t_list	*stack_tmp;
+
+	stack_tmp = *stack;
+	while (stack_tmp != NULL)
 	{
-		if (*(int *)(stack->content) == *(int *)(node->content))
+		if (*(int *)(stack_tmp->content) == *(int *)(node->content))
 		{
-			//ft_lstclear(*stack_a);
-			//ft_lstdel_one(node);
+			ft_lstclear(stack, del_content);
+			ft_lstdelone(node, del_content);
+			ft_strtabfree(tab);
 			msg_exit("Error! Uniqueness\n", 1);
 		}
-		stack = stack->next;
+		stack_tmp = stack_tmp->next;
 	}
 }
 
-static void	check_number(char *str)
+static void	check_number(char *str, t_list **stack_a, char **tab)
 {
 	if (ft_isnumber(str) == 0)
 	{
-		//ft_lstclear();
-		msg_exit("Error! Number is not a number", 1);
+		ft_lstclear(stack_a, del_content);
+		ft_strtabfree(tab);
+		msg_exit("Error! Number is not a number\n", 1);
 	}
 	if (ft_isinteger(str) == 0)
 	{
-		//ft_lstclear();
-		msg_exit("Error! Number is not int", 1);
+		ft_lstclear(stack_a, del_content);
+		ft_strtabfree(tab);
+		msg_exit("Error! Number is not int\n", 1);
 	}
 }
 
@@ -84,13 +88,13 @@ static void	parse_arg(char *argument, t_list **stack_a)
 	i = 0;
 	while (tab[i] != NULL)
 	{
-		check_number(tab[i]);
+		check_number(tab[i], stack_a, tab);
 		number = ft_calloc(sizeof(*number), 1);
 		*number = ft_atoi(tab[i]);
 		node = ft_lstnew(number);
 		if (node == NULL)
-			msg_exit("ft_lstnew() failed", 1);
-		check_uniqueness(*stack_a, node);
+			msg_free_exit("ft_lstnew() failed", stack_a, 1);
+		check_uniqueness(stack_a, node, tab);
 		ft_lstadd_back(stack_a, node);
 		i++;
 	}

@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/16 15:00:23 by alefranc          #+#    #+#              #
-#    Updated: 2022/03/18 23:28:54 by alefranc         ###   ########.fr        #
+#    Updated: 2022/03/25 14:20:23 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ LIBFTINC_FLAG = -I$(LIBFTDIR)include
 
 SRCDIR = src/
 SRCFILES =	action_push.c \
+			action_push_below_limit.c \
 			action_push_minmax.c \
 			action_reverse_rotate.c \
 			action_rotate.c \
@@ -50,6 +51,7 @@ SRCFILES =	action_push.c \
 			custom_sort_4.c \
 			custom_sort_5.c \
 			custom_sort_n.c \
+			fast_sort.c \
 			main.c \
 			parsing.c \
 			error.c \

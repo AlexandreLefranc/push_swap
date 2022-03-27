@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 06:42:21 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/24 20:24:48 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/25 09:59:28 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,9 @@ void	ft_lstprint(t_list *lst, char *msg)
 		lst = lst->next;
 	}
 	dprintf(2, "\n");
+}
+
+void	del_content(void *content)
+{
+	free(content);
 }

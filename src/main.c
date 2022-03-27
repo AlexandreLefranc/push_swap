@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:43:39 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/24 21:35:01 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/27 15:58:17 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main(int argc, char **argv)
 	// ft_lstprint(stack_a, "=====stack_a=====");
 	if (is_sorted(stack_a) == 1)
 	{
-		// ft_lstclear(stack_a);
-		dprintf(2, "Already sorted\n");
+		ft_lstclear(&stack_a, del_content);
+		//dprintf(2, "Already sorted\n");
 		return (0);
 	}
 	if (ft_lstsize(stack_a) == 2)
@@ -35,6 +35,8 @@ int	main(int argc, char **argv)
 	else if (ft_lstsize(stack_a) == 5)
 		custom_sort_5(&stack_a, &stack_b);
 	else
-		custom_sort_n(&stack_a, &stack_b);
+		fast_sort(&stack_a, &stack_b, 8);
+	ft_lstclear(&stack_a, del_content);
+	ft_lstclear(&stack_b, del_content);
 	return (0);
 }
