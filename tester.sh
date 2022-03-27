@@ -110,13 +110,17 @@ done
 
 
 
-# echo ""
-# echo "Testing 500 numbers"
-#
-# for i in {1..5}
-# do
-#     ARG=`./number_generator.py 500 -1000 1000`
-#     printf "\tRandom: %s\n\t\t" $ARG
-#     ./push_swap $ARG | ./checker_linux $ARG; printf "\t\tNumber of steps: "
-#     ./push_swap $ARG | wc -l
-# done
+echo ""
+echo "Testing 500 numbers"
+
+for i in {1..5}
+do
+    ARG=`./number_generator.py 500 -1000 1000`
+    OK=`./push_swap $ARG | ./checker_linux $ARG`
+    WC=`./push_swap $ARG | wc -l`
+    [[ "$OK" == "OK" ]] && OK="${green}OK${reset}" || OK="${red}KO${reset}"
+    printf "\tRandom: %s\n\t\t" $ARG
+    echo $OK
+    echo -n "${blue}\t\tNumber of steps:"
+    echo "${WC}${reset}"
+done

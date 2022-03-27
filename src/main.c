@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:43:39 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/27 15:58:17 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/28 00:05:10 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	main(int argc, char **argv)
 		custom_sort_2(&stack_a, &stack_b);
 	else if (ft_lstsize(stack_a) == 3)
 		custom_sort_3(&stack_a, &stack_b);
-	else if (ft_lstsize(stack_a) == 4)
-		custom_sort_4(&stack_a, &stack_b);
-	else if (ft_lstsize(stack_a) == 5)
-		custom_sort_5(&stack_a, &stack_b);
+	else if (ft_lstsize(stack_a) <= 10)
+		custom_sort_n(&stack_a, &stack_b);
+	else if (ft_lstsize(stack_a) <= 100)
+		fast_sort(&stack_a, &stack_b, 5);
 	else
-		fast_sort(&stack_a, &stack_b, 8);
+		fast_sort(&stack_a, &stack_b, 10);
 	ft_lstclear(&stack_a, del_content);
 	ft_lstclear(&stack_b, del_content);
 	return (0);
