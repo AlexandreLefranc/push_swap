@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 15:22:50 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/27 22:13:20 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:11:36 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	push_max_a(t_list **stack_a, t_list **stack_b)
 
 	size = ft_lstsize(*stack_b);
 	max_i = index_of_max(*stack_b);
-	// printf("max_i=%zu\n", max_i);
 	if (max_i > size / 2)
 	{
 		while (max_i < size)

@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 06:42:21 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/25 09:59:28 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:14:11 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,6 @@ int	is_sorted(t_list *stack)
 		stack = stack->next;
 	}
 	return (1);
-}
-
-void	ft_lstprint(t_list *lst, char *msg)
-{
-	int	*content;
-
-	dprintf(2, "%s\n", msg);
-	while (lst != NULL)
-	{
-		content = lst->content;
-		dprintf(2, "%d\n", *content);
-		lst = lst->next;
-	}
-	dprintf(2, "\n");
 }
 
 void	del_content(void *content)

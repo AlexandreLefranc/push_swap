@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:03:28 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/18 22:50:43 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:11:29 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,4 @@ void	custom_sort_2(t_list **stack_a, t_list **stack_b)
 	{
 		write(2, "Error! Not sorted\n", 18);
 	}
-	//ft_lstprint(stack_a, "=====stack_a=====");
 }

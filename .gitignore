@@ -1,6 +1,8 @@
 # Perso
 push_swap
 a.out
+push_swap_tester/
+push_swap_run_args.log
 
 # Others
 *.swp

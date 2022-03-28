@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:16:23 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/25 14:20:02 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/28 14:46:48 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "libft.h"
 
 // action_push_below_limit.c
-int	push_below_limit_b(t_list **stack_a, t_list **stack_b, int limit);
+int		push_below_limit_b(t_list **stack_a, t_list **stack_b, int limit);
 
 // action_push_minmax.c
 void	push_max_b(t_list **stack_a, t_list **stack_b);
@@ -63,7 +63,6 @@ void	fast_sort(t_list **stack_a, t_list **stack_b, int nchunks);
 
 // utils_lst.c
 int		is_sorted(t_list *stack);
-void	ft_lstprint(t_list *lst, char *msg);
 void	del_content(void *content);
 
 // utils_stack.c

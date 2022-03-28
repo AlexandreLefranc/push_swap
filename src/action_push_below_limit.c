@@ -6,13 +6,13 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 12:31:09 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/25 14:50:25 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:12:23 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void select_push(t_list **st_a, t_list **st_b, ssize_t f_i, ssize_t l_i)
+static void	select_push(t_list **st_a, t_list **st_b, ssize_t f_i, ssize_t l_i)
 {
 	int	size;
 
@@ -40,8 +40,8 @@ int	push_below_limit_b(t_list **stack_a, t_list **stack_b, int limit)
 {
 	t_list	*a_tmp;
 	size_t	i;
-	ssize_t first_i;
-	ssize_t last_i;
+	ssize_t	first_i;
+	ssize_t	last_i;
 
 	a_tmp = *stack_a;
 	i = 0;

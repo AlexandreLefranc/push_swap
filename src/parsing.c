@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:26:07 by alefranc          #+#    #+#             */
-/*   Updated: 2022/03/25 10:36:08 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/03/28 14:43:08 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	check_uniqueness(t_list **stack, t_list *node, char **tab)
 			ft_lstclear(stack, del_content);
 			ft_lstdelone(node, del_content);
 			ft_strtabfree(tab);
-			msg_exit("Error! Uniqueness\n", 1);
+			msg_exit("Error\n", 1);
 		}
 		stack_tmp = stack_tmp->next;
 	}
@@ -65,13 +65,13 @@ static void	check_number(char *str, t_list **stack_a, char **tab)
 	{
 		ft_lstclear(stack_a, del_content);
 		ft_strtabfree(tab);
-		msg_exit("Error! Number is not a number\n", 1);
+		msg_exit("Error\n", 1);
 	}
 	if (ft_isinteger(str) == 0)
 	{
 		ft_lstclear(stack_a, del_content);
 		ft_strtabfree(tab);
-		msg_exit("Error! Number is not int\n", 1);
+		msg_exit("Error\n", 1);
 	}
 }
 
@@ -84,12 +84,14 @@ static void	parse_arg(char *argument, t_list **stack_a)
 
 	tab = ft_split(argument, ' ');
 	if (tab == NULL)
-		return ;
+		msg_free_exit("ft_split() failed", stack_a, 1);
 	i = 0;
 	while (tab[i] != NULL)
 	{
 		check_number(tab[i], stack_a, tab);
 		number = ft_calloc(sizeof(*number), 1);
+		if (number == NULL)
+			msg_free_exit("ft_calloc() failed", stack_a, 1);
 		*number = ft_atoi(tab[i]);
 		node = ft_lstnew(number);
 		if (node == NULL)
